@@ -1,0 +1,39 @@
+services:
+    microfront-main:
+        image: fabiomartineli/microfrontend-main
+        container_name: microfront-main
+        restart: always
+        environment:
+          NODE_EV: production
+          APP01_URL: App01@http://localhost/app-01/moduleEntry.js
+          APP02_URL: App02@http://localhost/app-02/moduleEntry.js
+        depends_on:
+          - microfront-app1
+          - microfront-app2
+    microfront-app1:
+        image: fabiomartineli/microfrontend-app1
+        container_name: microfront-app1
+        restart: always
+        environment:
+          NODE_EV: production
+    microfront-app2:
+        image: fabiomartineli/microfrontend-app2
+        container_name: microfront-app2
+        restart: always
+        environment:
+          NODE_EV: production
+    nginx:
+        depends_on:
+          - microfront-main
+          - microfront-app1
+          - microfront-app2
+        image: nginx:alpine
+        ports:
+          - 80:80
+        links:
+          - microfront-main
+          - microfront-app1
+          - microfront-app2
+        restart: always
+        volumes:
+          - ./nginx.conf:/etc/nginx/nginx.conf

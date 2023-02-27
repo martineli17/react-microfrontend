@@ -1,0 +1,4 @@
+- É necessário criar um arquivo nginx.conf para cada microfrontend
+- É necessário, na variaveis de ambiente de produção de cada microfrontend, informar a URL PUBLICA para que ele consiga buscar os arquivos corretamente no momento de realizar o proxy. Essa URL deve ser a mesma definida no proxy
+- É necessário criar o arquivo de configuração do proxy
+- É necessário criar o docker-compose para subir as aplicações

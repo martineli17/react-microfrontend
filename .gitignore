@@ -1,0 +1,12 @@
+./*/node_modules
+./*/.env.production
+./*/.env.local
+./*/
+.env.development.local
+./*/.env.test.local
+
+./*/pm-debug.log*
+./*/yarn-debug.log*
+./*/
+yarn-error.log*
+
