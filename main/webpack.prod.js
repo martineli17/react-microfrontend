@@ -10,6 +10,7 @@ module.exports = (env, argv) => ({
   mode: 'production',
   devServer: {
     port: 3000,
+    historyApiFallback: true,
   },
   module: {
     rules: [

@@ -10,6 +10,7 @@ module.exports = (env, argv) => ({
   mode: 'development',
   devServer: {
     port: 3000,
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -55,5 +56,6 @@ module.exports = (env, argv) => ({
      filename: '[name].bundle.js',
      path: path.resolve(__dirname, 'build'),
      clean: true,
+     publicPath: '/'
    },
 });
